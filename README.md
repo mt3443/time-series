@@ -19,7 +19,7 @@ Once the requirements are installed, each of the cells in the Jupyter Notebook c
 
 ### Results
 
-Forecasts for each of the two models were plotted against the true trends to qualitatively illusrate their accuracies. At a glance, both models seem fairly similar. After inspecting the decomposition models, the reason behind this becomes apparent. There's hardly any fluctuation in the trend. The original chart spikes between values near zero and values above 200,000. However, the trend has a range of only about 15,000. In other words, this time series is fairly constant, albeit noisey. To effectively compare the two models, I decided  to utilize mean-squared-error. As expected, the more complex ARIMA model had a lower MSE value and is therefore marginally more accurate than the simple linear regression model.
+Forecasts for each of the two models were plotted against the true trends to qualitatively illustrate their accuracies. At a glance, both models seem fairly similar. After inspecting the decomposition models, the reason behind this becomes apparent. There's hardly any fluctuation in the trend. The original chart spikes between values near zero and values above 200,000. However, the trend has a range of only about 15,000. In other words, this time series is fairly constant, albeit noisy. To effectively compare the two models, I decided  to utilize mean-squared-error. As expected, the more complex ARIMA model had a lower MSE value and is therefore marginally more accurate than the simple linear regression model.
 
 ### Future Work and Optimizations
 
