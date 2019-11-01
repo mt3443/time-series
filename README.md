@@ -6,7 +6,7 @@ This project is meant to serve as an introduction to time series forecasting. Ti
 
 ### Approach
 
-I began by downloading [this dataset](https://www.kaggle.com/felixzhao/productdemandforecasting). This dataset contains the demand of many products over many years. I chose the product that had the most available data and decided to focus on that one in particular. After removing all of the extraneous information from the dataset, I grouped the product demand figures by month. The served a dual-purpose of reducing the number of samples the models would have to process while also creating a uniform temporal distribution of exactly one month between samples. Once the data had been prepared, I performed an 80-20 train-test split. Then, I created moving average and ARIMA models to predict future product demand.
+I began by downloading [this dataset](https://www.kaggle.com/felixzhao/productdemandforecasting). This dataset contains the demand of many products over many years. I chose one of the products that had the most available data and decided to focus on the one in particular that had a rather clear trend. After removing all of the extraneous information from the dataset, I grouped the product demand figures by day. Once the data had been prepared, I performed an 80-20 train-test split. Then, I used linear regression and ARIMA models to forecast the prepared time series. I employed plots to visually confirm the results and mean-squared-error to quantitatively compare the two models.
 
 ### How to Run
 
@@ -19,8 +19,8 @@ Once the requirements are installed, each of the cells in the Jupyter Notebook c
 
 ### Results
 
-Forecasts for each of the two models were plotted against the true trends to qualitatively illusrate their accuracies. With only a glance, the moving average model is far more accurate than
+Forecasts for each of the two models were plotted against the true trends to qualitatively illusrate their accuracies. At a glance, both models seem fairly similar. After inspecting the decomposition models, the reason behind this becomes apparent. There's hardly any fluctuation in the trend. The original chart spikes between values near zero and values above 200,000. However, the trend has a range of only about 15,000. In other words, this time series is fairly constant, albeit noisey. To effectively compare the two models, I decided  to utilize mean-squared-error. As expected, the more complex ARIMA model had a lower MSE value and is therefore marginally more accurate than the simple linear regression model.
 
 ### Future Work and Optimizations
 
-Possible optimizations include tweaking model parameters. There likely exists some combination of settings that would increase the performance of these models. Future work might also include utilizing many more regression models to see exactly which one performs the best. Neural networks are said to have state-of-the-art performance, so it may be interesting to see how they perform relative to these two models.
+Given more time to work on this project, I would look for other products in the dataset with more interesting trends. Most of the examples I looked at were very similar. They had average values that hardly fluctuated with copious amounts of noise throughout. Once I found a product with a more interesting trend, I would implement other forecasting models. Although rather complex, recurrent neural networks like LSTMs have been used by others to predict time-dependent data with surprising results.
